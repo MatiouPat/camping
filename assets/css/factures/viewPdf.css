@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    position: absolute;
+    border-style: none;
+}
+
+body{
+    background-color: #FFFFFF;
+    font-family: 'Montserrat', serif;
+    line-height: 1.625;
+}
+
+.bill-body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+.bill-header_box{
+    display: flex;
+    flex-direction: row;
+}
+
+.bill-header_camping__box{
+    display: block;
+    width: calc(50% - 40px);
+    margin: 20px;
+    padding: 10px;
+    border: solid 1px #000000;
+}
+
+.bill-header_camping__logo{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.bill-header_bill{
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.bill-header_entry__box{
+    display: block;
+    width: calc(50% - 40px);
+    margin: 20px;
+    padding: 10px;
+    border: solid 1px #000000;
+}
+
+.bill-information_box{
+    margin: 20px;
+}
+
+.bill-content_box{
+    display: block;
+    height: 745px;
+    margin: 20px;
+}
+
+.bill-content_box table{
+    width: calc(100% + 2px );
+    margin-left: -1px;
+    text-align: left;
+    border: solid 1px #000000;
+}
+
+.bill-content_box tr th{
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    vertical-align: middle;
+    border: solid 1px #000000;
+}
+
+.bill-content_box tbody{
+    padding: 5px;
+    text-align: center;
+    vertical-align: top;
+    font-style: italic;
+}
+
+.bill-content_box td{
+    border-right: solid 1px #000000;
+}
+
+.bill-footer_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.bill-footer_touristTax__box{
+    display: block;
+    width: calc(50% - 20px);
+}
+
+.bill-footer_touristTax__box table{
+    width: 100%;
+}
+
+.bill-footer_touristTax__box tr th{
+    padding: 5px 10px;
+    vertical-align: middle;
+    border: solid thin #000000;
+}
+
+.bill-footer_touristTax__box tbody tr td{
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+    border: solid thin #000000;
+}
+
+.bill-footer_calculationAndTotal__box{
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px);
+}
+
+.bill-footer_calculation__box{
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #000000;
+}
+
+.bill-footer_calculation__box div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bill-footer_total__box{
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid 1px #000000;
+    font-weight: 700;
+}
+
+.bill-footer_total__box div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

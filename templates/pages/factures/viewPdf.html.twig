@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ pathToWeb }}/build/app.css">
+        <link rel="stylesheet" href="{{ pathToWeb }}/build/billViewPdf.css">
+    </head>
+
+    <body class="bill-body">
+        <div class="bill-header_box">
+            <div class="bill-header_camping__box">
+                <img class="bill-header_camping__logo" src="{{ pathToWeb }}/img/logo_shdh.svg">
+                <span>Rue de Marly<br>50600 Saint-Hilaire-du-Harcouët<br>Tel : 02 33 49 43 74<br>Port : 06 00 00 00 00</span>
+            </div>
+            <div class="bill-header_bill"><span>Facture</span><span>M01A9900011</span></div>
+            <div class="bill-header_entry__box">
+                <div>
+                    <span>N° de facture : </span><br>
+                    <span>Date de facture : {{ bill.paidedAt|date('d/m/Y') }}</span><br>
+                    <span>Moyen de paiement : {{ bill.way }}</span><br>
+                    <span>N° client : {{ entry.formattedId }}</span><br>
+                    <hr width="300">
+                    <span style="font-weight: 700">Client facturé :</span><br>
+                    <span>{{ entry.genderName }} {{ entry.surname }} {{ entry.name }}</span><br>
+                    <span>{{ entry.address }}</span><br>
+                    <span>{{ entry.postalCode }} {{ entry.city }}</span><br>
+                    <span>{{ entry.country }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="bill-information_box">
+            Période d'ouverture du camping : Du 1er avril au 30 septembre<br>
+            Horaires d'ouverture du camping : 8h00 - 12h00 / 14h00 - 19h30
+        </div>
+        <div class="bill-content_box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Désignation</th>
+                        <th>Qté</th>
+                        <th>Px Unit. €</th>
+                        <th>Nb de Nuitée(s)</th>
+                        <th>Mtt Base. €</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stay in stays %}
+                        <tr>
+                            <td style="font-style: italic">{{ stay.formattedId }}</td>
+                            <td style="font-size: 0.6rem; text-align: left; padding-left: 5px"><span style="font-size: 0.8rem">Séjour</span> Du {{ stay.arrivedAt|date('d/m/Y') }} aux {{ stay.leavedAt|date('d/m/Y') }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Adulte</td>
+                            <td>{{ stay.adult }}</td>
+                            <td>2.35</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (2.35*stay.adult*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% if stay.teenager %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Adolescent(-18ans)</td>
+                            <td>{{ stay.teenager }}</td>
+                            <td>2.35</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (2.35*stay.teenager*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.child %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Enfant(-12ans)</td>
+                            <td>{{ stay.child }}</td>
+                            <td>1.10</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (1.10*stay.child*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.car %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Voiture</td>
+                            <td>{{ stay.car }}</td>
+                            <td>1.00</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (1.00*stay.car*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.motorBike %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Moto</td>
+                            <td>{{ stay.motorBike }}</td>
+                            <td>0.50</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (0.50*stay.motorBike*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.campingCar %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Camping car</td>
+                            <td>{{ stay.campingCar }}</td>
+                            <td>3.00</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (3.00*stay.campingCar*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.caravan %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Caravane</td>
+                            <td>{{ stay.caravan }}</td>
+                            <td>2.00</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (2.00*stay.caravan*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.tent %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Tente</td>
+                            <td>{{ stay.tent }}</td>
+                            <td>2.00</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (2.00*stay.tent*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.woodenCaravan %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Roulotte</td>
+                            <td>{{ stay.woodenCaravan }}</td>
+                            <td>??</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (2.35*stay.adult*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.electricity %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Electricité</td>
+                            <td>{{ stay.electricity }}</td>
+                            <td>1.95</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ (1.95*stay.adult*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if stay.pet %}
+                        <tr>
+                            <td></td>
+                            <td style="font-style: italic">Animaux</td>
+                            <td>{{ stay.adult }}</td>
+                            <td>0.70</td>
+                            <td>{{ stay.pet }}</td>
+                            <td>{{ (0.70*stay.pet*stay.duringStay)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="bill-footer_box">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            <div class="bill-footer_touristTax__box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="4" style="font-weight: 700">Taxe de séjour</th>
+                        </tr>
+                        <tr>
+                            <th>Px Unit. €</th>
+                            <th>Nb de Nuitée(s)</th>
+                            <th>Nb de Personne</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for stay in stays %}
+                        <tr>
+                            <td>0.22</td>
+                            <td>{{ stay.duringStay }}</td>
+                            <td>{{ stay.adult }}</td>
+                            <td>{{ (0.22*stay.duringStay*stay.adult)|number_format(2, ',', ' ') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <span style="display:block; margin-top: 10px">Nos factures sont libellées en Euros</span>
+            </div>
+            <div class="bill-footer_calculationAndTotal__box">
+                <div class="bill-footer_calculation__box">
+                    <div><span>Montant remise</span><span>0.00</span></div>
+                    <div><span>Montant HT</span><span></span></div>
+                    <div><span>Taxe de séjour</span><span></span></div>
+                    <div><span>Montant TTC</span><span>{{  bill.amount|number_format(2, ',', ' ') }}</span></div>
+                </div>
+                <div class="bill-footer_total__box">
+                    <div><span>NET A PAYER</span><span>{{ bill.amount|number_format(2, ',', ' ') }} €</span></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

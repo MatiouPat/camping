@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('booking') }}
+{% endblock %}
+
+{% block url %}
+    Liste des reservations
+{% endblock %}
+
+{% block body %}
+    <div class="date"><i id="day-down" class="material-icons nav-icons">keyboard_arrow_left</i><span class="date-number">{{ date }}</span><i id="day-up" class="material-icons nav-icons">keyboard_arrow_right</i></div>
+    <table class="calendar">
+        <thead>
+        <tr>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+            {% for weeks in month %}
+                <tr class="week">
+                {% for days in weeks %}
+                    {% if days[2] == 0 %}
+                        <td class="day-out"></td>
+                    {% else %}
+                        <td class="day-in">
+                            <span class="day-number">{{ days[1] }}{% if days[3] %}{% for booking in days[3] %}<div class="booking">{{ booking.entry.genderName }} {{ booking.entry.surname }} {{ booking.entry.name }}</div>{% endfor %}{% endif %}</span>
+                        </td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('booking') }}
+{% endblock %}

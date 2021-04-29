@@ -1,0 +1,225 @@
+table{
+    display: block;
+}
+
+tbody{
+    display: block;
+}
+
+tr {
+    display: flex;
+    padding: 2px 8px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+td{
+    display: block;
+    padding: 2px;
+    margin: auto 0;
+}
+
+.content{
+    background-color: #EEEEEE;
+}
+
+.base-content{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.content-box{
+    display: block;
+    position: relative;
+    padding: 20px;
+}
+
+.current-stay-number{
+    display: block;
+    position: absolute;
+    top: -65px;
+    left: -20px;
+    background-color: #FF0000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    color: #FFFFFF;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+}
+
+.current-stay-spot{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #00aeef;
+    color: #FFFFFF;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+}
+
+.stay-informations{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-entry-information{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+.address{
+    display: flex;
+    flex-direction: column;
+}
+
+.entryAndService-information{
+    display: grid;
+    grid-template-rows: 5fr 4fr;
+    grid-template-columns: 1fr;
+}
+
+.entry-information{
+    display: flex;
+    flex-direction: column;
+}
+
+.service_box{
+    /*display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;*/
+    align-items: center;
+}
+
+.number{
+    display: block;
+    margin: auto auto auto 10px;
+}
+
+.service_add__button{
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #00aeef;
+    padding: 10px 15px;
+    margin: 5px auto;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+}
+
+.body-box{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+}
+
+.booking-box{
+    min-height: 815px;
+}
+
+.booking-spot{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #99cf16;
+    color: #FFFFFF;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+}
+
+.attendanceAndBill-box{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+.deadGarage_box{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bill_box{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bill_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.invisible{
+    opacity: 0.3;
+}
+
+.visible{
+    color: rgba(0,0,0, 1);
+}
+
+.header-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.alert_box{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9001;
+}
+
+.alert_box__wrapper{
+    display: block;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #FFF;
+    width: 40%;
+    height: 20%;
+    max-width: calc(100vw);
+    max-height: calc(100vh);
+    padding: 0px;
+}
+
+.alert_box__text{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 38px 0;
+}

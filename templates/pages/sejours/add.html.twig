@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('stayAdd') }}
+{% endblock %}
+
+{% block url %}
+    <a href="{{ path('stay.index') }}">Liste des séjours</a> <i class="trending_flat material-icons ">trending_flat</i> Ajout d'un séjour ou d'une réservation
+{% endblock %}
+
+{% block body %}
+    <div class="box currentStay">
+        <span class="title_box title_box__green">Client</span>
+        <div class="research_box"><input type="text" placeholder="Rechercher un client" class="research_box__text"><button class="research_box__button">Rechercher</button></div>
+        <a href="{{ path('entry.add') }}" class="button button__green"><button type="button">Nouveau client</button></a>
+        {% if form_errors(form.entry) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.entry) }}</div>{% endif %}
+        <div class="stay-entry_list">
+            {% for entry in entries %}
+                <div class="stay-entry_box">
+                    <div>{{ entry.genderName }} {{ entry.surname }} <span class="name">{{ entry.name }}</span></div>
+                    <span>{{ entry.address }}</span>
+                    <span>{{ entry.postalCode }} {{ entry.city }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="box stay-informations">
+        <span class="title_box title_box__blue">Séjour</span>
+
+        {% if form_errors(form) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form) }}</div>{% endif %}
+        {{ form_start(form) }}
+        <div class="stay-table">
+            <div class="stay-date_box">
+                <div class="stay-entry_number">
+                    {{ form_row(form.entry) }}
+                </div>
+                <div class="row"><div>{% if form_errors(form.arrived_at) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.arrived_at) }}</div>{% endif %}{{ form_label(form.arrived_at) }}{{ form_widget(form.arrived_at) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.leaved_at) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.leaved_at) }}</div>{% endif %}{{ form_label(form.leaved_at) }}{{ form_widget(form.leaved_at) }}</div></div>
+            </div>
+            <div class="stay-person_box">
+                <div class="row"><div>{% if form_errors(form.adult) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.adult) }}</div>{% endif %}{{ form_label(form.adult) }}{{ form_widget(form.adult) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.teenager) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.teenager) }}</div>{% endif %}{{ form_label(form.teenager) }}{{ form_widget(form.teenager) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.child) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.child) }}</div>{% endif %}{{ form_label(form.child) }}{{ form_widget(form.child) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.pet) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.pet) }}</div>{% endif %}{{ form_label(form.pet) }}{{ form_widget(form.pet) }}</div></div>
+            </div>
+            <div class="stay-transport_box">
+                <div class="row"><div>{% if form_errors(form.car) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.car) }}</div>{% endif %}{{ form_label(form.car) }}{{ form_widget(form.car) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.motor_bike) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.motor_bike) }}</div>{% endif %}{{ form_label(form.motor_bike) }}{{ form_widget(form.motor_bike) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.bike) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.bike) }}</div>{% endif %}{{ form_label(form.bike) }}{{ form_widget(form.bike) }}</div></div>
+            </div>
+            <div class="stay-transport_box">
+                <div class="row"><div>{% if form_errors(form.camping_car) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.camping_car) }}</div>{% endif %}{{ form_label(form.camping_car) }}{{ form_widget(form.camping_car) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.caravan) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.caravan) }}</div>{% endif %}{{ form_label(form.caravan) }}{{ form_widget(form.caravan) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.tent) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.tent) }}</div>{% endif %}{{ form_label(form.tent) }}{{ form_widget(form.tent) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.wooden_caravan) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.wooden_caravan) }}</div>{% endif %}{{ form_label(form.wooden_caravan) }}{{ form_widget(form.wooden_caravan) }}</div></div>
+            </div>
+            <div class="stay-information_box">
+                <div class="row"><div>{% if form_errors(form.spot) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.spot) }}</div>{% endif %}{{ form_label(form.spot) }}{{ form_widget(form.spot) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.registration) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.registration) }}</div>{% endif %}{{ form_label(form.registration) }}{{ form_widget(form.registration) }}</div></div>
+                <div class="row"><div>{% if form_errors(form.electricity) %}<div class="row_errors"><span class="row_errors__box">Erreur</span>{{ form_errors(form.electricity) }}</div>{% endif %}{{ form_label(form.electricity) }}{{ form_widget(form.electricity) }}</div></div>
+            </div>
+        </div>
+        <div class="box_edit">
+            <a class="button button__green"><button type="submit">Ajouter le séjour</button></a>
+        {{ form_end(form) }}
+
+            <a class="button button__red" href="{{ path('entry.index') }}"><button type="button" formtarget="_parent">Retour</button></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('stayAdd') }}
+{% endblock %}

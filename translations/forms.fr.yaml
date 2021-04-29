@@ -1,0 +1,33 @@
+Gender: Genre
+Surname: Nom
+Name: Prénom
+Address: Adresse
+Nationality: Nationalité
+Postal code: Code postal
+City: Ville
+Home phone: Téléphone fixe
+Phone: Téléphone portable
+Arrived at: Date d'arrivé
+Leaved at: Date de départ
+Spot: Emplacement
+Adult: Adulte
+Teenager: Adolescent(-18 ans)
+Child: Enfant(-12 ans)
+Car: Voiture
+Motor bike: Moto
+Bike: Vélo
+Camping car: Camping-car
+Caravan: Caravane
+Tent: Tente
+Wooden caravan: Roulotte
+Registration: Plaque d'immatriculation
+Electricity: Electricité
+Pet: Animaux
+Entry: Client
+Bill: Facture
+Booking: Réservation
+Washing token: Lave-linge
+Drying token: Sèche-linge
+External shower: Douche extérieur
+Started at: Début du garage mort le
+Stopped at: Fin du garage mort le

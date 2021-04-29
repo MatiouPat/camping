@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block url %}
+    <a href="{{ path('stay.index') }}">Liste des séjours</a> <i class="trending_flat material-icons ">trending_flat</i> Modification d'un séjour ou d'une réservation
+{% endblock %}
+
+{% block body %}
+    <div class="table">
+        {{ form_start(form) }}
+        <div style="display: none">{{ form_row(form.entry) }}</div>
+        <div class="row">{{ form_row(form.arrived_at) }} {{ form_row(form.leaved_at) }}</div>
+        <div class="row">{{ form_row(form.spot) }}</div>
+        <div class="row">{{ form_row(form.adult) }}</div>
+        <div class="row">{{ form_row(form.teenager) }}</div>
+        <div class="row">{{ form_row(form.child) }}</div>
+        <div class="row">{{ form_row(form.car) }}</div>
+        <div class="row">{{ form_row(form.motor_bike) }}</div>
+        <div class="row">{{ form_row(form.bike) }}</div>
+        <div class="row">{{ form_row(form.camping_car) }}</div>
+        <div class="row">{{ form_row(form.caravan) }}</div>
+        <div class="row">{{ form_row(form.tent) }}</div>
+        <div class="row">{{ form_row(form.wooden_caravan) }}</div>
+        <div class="row">{{ form_row(form.registration) }}</div>
+        <div class="row">{{ form_row(form.electricity) }}</div>
+        <div class="row">{{ form_row(form.pet) }}</div>
+        <div class="box_edit">
+            <a class="button button__green"><button type="submit">Modifier le séjour</button></a>
+            {{ form_end(form) }}
+            <a href="{{ path('entry.view', {id: form.entry.vars.value}) }}" class="button button__red"><button type="button" formtarget="_parent">Retour</button></a>
+        </div>
+    </div>
+{% endblock %}
+

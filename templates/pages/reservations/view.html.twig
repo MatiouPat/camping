@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('bookingView') }}
+{% endblock %}
+
+{% block url %}
+    <a href="{{ path('booking.index') }}">Liste des réservations</a> <i class="trending_flat material-icons ">trending_flat</i> {{ date }}
+{% endblock %}
+
+{% block body %}
+    <div class="box_edit">
+        <a href="{{ path('stay.add') }}" class="button button__green"><button type="button">Ajouter une réservation</button></a>
+    </div>
+    <span class="title_box title_box__green">Roulottes</span>
+    <div class="wooden-caravan-list">
+        {% if woodenCaravan %}
+            {% for w in woodenCaravan[0] %}
+                {% if w.spot == 'K1' %}
+                <div class="box wooden-caravan-box reinette-caravan" onclick="document.location='{{ path('entry.view', {id: w.entry.id}) }}'">
+                        <span class="title_box title_box__blue">Reinnette</span>
+                        <span class="date-box">Du <span class="date date-blue">{{ w.arrivedAt|date('d-m-Y') }}</span> aux <span class="date date-blue">{{ w.leavedAt|date('d-m-Y') }}</span></span>
+                        <span class="entry-name">{{ w.entry.genderName }} {{ w.entry.surname }} {{ w.entry.name }}</span>
+
+                </div>
+                {% else %}
+                    <div class="box wooden-caravan-box reinette-caravan">
+                        <span class="title_box title_box__blue">Reinnette</span>
+                        <span class="entry-name">Aucun séjour prévu pour la roulotte</span>
+                    </div>
+                {% endif %}
+                {% if w.spot == 'K2' %}
+                    <div class="box wooden-caravan-box joly-rouge-roulotte" onclick="document.location='{{ path('entry.view', {id: w.entry.id}) }}'">
+                        <span class="title_box title_box__blue">Joly-Rouge</span>
+                        <span class="date-box">Du <span class="date date-blue">{{ w.arrivedAt|date('d-m-Y') }}</span> aux <span class="date date-blue">{{ w.leavedAt|date('d-m-Y') }}</span></span>
+                        <span class="entry-name">{{ w.entry.genderName }} {{ w.entry.surname }} {{ w.entry.name }}</span>
+                    </div>
+                {% else %}
+                    <div class="box wooden-caravan-box joly-rouge-roulotte">
+                        <span class="title_box title_box__blue">Joly-Rouge</span>
+                        <span class="entry-name">Aucun séjour prévu pour la roulotte</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="box wooden-caravan-box reinette-caravan">
+                <span class="title_box title_box__blue">Reinnette</span>
+                <span class="entry-name">Aucun séjour prévu pour la roulotte</span>
+            </div>
+            <div class="box wooden-caravan-box joly-rouge-roulotte">
+                <span class="title_box title_box__blue">Joly-Rouge</span>
+                <span class="entry-name">Aucun séjour prévu pour la roulotte</span>
+            </div>
+        {% endif %}
+    </div>
+    {% if booking %}
+        <span class="title_box title_box__green">Terrains nus</span>
+        <div class="booking-list">
+        {% for b in booking %}
+            <div class="box booking-box" onclick="document.location='{{ path('entry.view', {id: b[0].entry.id}) }}'">
+                <span class="date-box">Du <span class="date date-blue">{{ b[0].arrivedAt|date('d-m-Y') }}</span> aux <span class="date date-blue">{{ b[0].leavedAt|date('d-m-Y') }}</span></span>
+                <span class="entry-name">{{ b[0].entry.genderName }} {{ b[0].entry.surname }} {{ b[0].entry.name }}</span>
+                <div class="stay-informations">
+                    <div class="stay-wells">
+                        <table>
+                            <tr {% if b[0].adult == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/adult.svg') }}"></td>
+                                <td>Adulte</td>
+                                <td>{{ b[0].adult }}</td>
+                            </tr>
+                            <tr {% if b[0].teenager == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/teenager.svg') }}"></td>
+                                <td>Enfant (+12ans)</td>
+                                <td>{{ b[0].teenager }}</td>
+                            </tr>
+                            <tr {% if b[0].child == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/child.svg') }}"></td>
+                                <td>Enfant (-12ans)</td>
+                                <td>{{ b[0].child }}</td>
+                            </tr>
+                            <tr {% if b[0].car == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/car.svg') }}"></td>
+                                <td>Voiture</td>
+                                <td>{{ b[0].car }}</td>
+                            </tr>
+                            <tr {% if b[0].motorBike == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/motor_bike.svg') }}"></td>
+                                <td>Moto</td>
+                                <td>{{ b[0].motorBike }}</td>
+                            </tr>
+                            <tr {% if b[0].bike == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/bike.svg') }}"></td>
+                                <td>Vélo</td>
+                                <td>{{ b[0].bike }}</td>
+                            </tr>
+                            <tr {% if b[0].campingCar == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/camping_car.svg') }}"></td>
+                                <td>Camping-car</td>
+                                <td>{{ b[0].campingCar }}</td>
+                            </tr>
+                            <tr {% if b[0].caravan == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/caravan.svg') }}"></td>
+                                <td>Caravane</td>
+                                <td>{{ b[0].caravan }}</td>
+                            </tr>
+                            <tr {% if b[0].tent == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/tent.svg') }}"></td>
+                                <td>Tente</td>
+                                <td>{{ b[0].tent }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="stay-services">
+                        <table>
+                            <tr {% if b[0].electricity == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/electricity.svg') }}"></td>
+                                <td>Electricité</td>
+                                <td>{{ b[0].electricity }}</td>
+                            </tr>
+                            <tr {% if b[0].pet == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                <td><img style="height: 40px; width: 40px" src="{{ asset('img/pet.svg') }}"></td>
+                                <td>Animal</td>
+                                <td>{{ b[0].pet }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                {% if b[0].spot %}
+                    <span class="current-stay-spot">{{ b[0].spot }}</span>
+                {% endif %}
+                <div class="box_edit">
+                    <a href="{{ path('booking.arrival', {'id': b[0].id}) }}" class="button button__green"><button type="button" formtarget="_parent">Arrivé</button></a>
+                    <a href="{{ path('stay.modify', {'id': b[0].id}) }}" class="button button__orange"><button type="button" formtarget="_parent">Modifier</button></a>
+                    <a id="button_deleteBooking" class="button button__red"><button type="button">Supprimer</button></a>
+                </div>
+            </div>
+            <aside id="alert_box__bookingDelete" class="alert_box" style="display: none">
+                <div class="alert_box__wrapper">
+                    <span class="alert_box__text">Voulez-vous supprimer cette réservation ?</span>
+                    <div class="box_edit">
+                        <a href="{{ path('stay.remove', {'id': b[0].id}) }}" id="alert_deleteButton__yes" class="button button__green"><button type="button" formtarget="_parent">Oui</button></a>
+                        <a id="alert_deleteButton__no" class="button button__red"><button type="button" formtarget="_parent">Non</button></a>
+                    </div>
+                </div>
+            </aside>
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('bookingView') }}
+{% endblock %}

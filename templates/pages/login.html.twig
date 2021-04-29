@@ -1,0 +1,43 @@
+<html lang="fr-FR">
+<head>
+    <meta charset="utf-8" />
+    <title>Se connecter</title>
+    <style>
+        body{
+            font-family: 'Montserrat', serif;
+            line-height: 1.625;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            weight: 100vw;
+            background: linear-gradient(0deg, rgba(28, 28, 28, 0.6), rgba(28, 28, 28, 0.6)),
+            url({{ asset('img/camping_background.jpg') }}) center center / cover no-repeat;
+        }
+    </style>
+    {{ encore_entry_link_tags('login') }}
+</head>
+
+<body>
+<div class="container">
+
+    {% if error %}
+        <div class="alert_box__text">
+            {{ error.messageKey | trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    <form method="post" action="{{ path('login') }}">
+        <div class="form-group">
+            <label>Pseudo</label>
+            <input class="form-control" name="_username" type="text" value="{{ last_username }}">
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input class="form-control" name="_password" type="password">
+        </div>
+        <button class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+</body>
+</html>

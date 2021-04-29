@@ -1,0 +1,19 @@
+.content{
+    padding: 25px 25%;
+}
+
+.table{
+    background-color: #FFFFFF;
+    margin: 20px;
+    width: calc(100% - 40px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+
+.row div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    padding: 8px;
+}

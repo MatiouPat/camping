@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Camping de la Sélune{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ absolute_url(asset('build/app.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('build/reset.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('build/base.css')) }}">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <aside class="base-aside">
+            <a href="{{ path('map.index') }}"><img class="logo" src="{{ absolute_url(asset('img/logo_shdh.svg')) }}"></a>
+            <nav>
+                <ul class="nav-ul">
+                    <span class="nav"><i class="material-icons nav-icons">extension</i>Gestion</span>
+                    <li class="sub-nav"><i class="material-icons sub-nav-icons">map</i><a href="{{ path('map.index') }}">Carte</a></li>
+                    <li class="sub-nav"><i class="material-icons sub-nav-icons">people</i><a href="{{ path('entry.index') }}">Clients</a></li>
+                    <li class="sub-nav"><i class="material-icons sub-nav-icons">local_cafe</i><a href="{{ path('stay.index') }}">Séjours</a></li>
+                    <!--<li class="sub-nav"><i class="material-icons sub-nav-icons">shop</i><a href="#">Factures</a></li>-->
+                    <li class="sub-nav"><i class="material-icons sub-nav-icons">event</i><a href="{{ path('booking.index') }}">Réservations</a></li>
+                    <!--<li class="sub-nav"><i class="material-icons sub-nav-icons">show_chart</i><a href="#">Statistiques</a></li>-->
+                </ul>
+                <ul class="nav-ul">
+                    <span class="nav"><i class="material-icons nav-icons">build</i>Paramètres</span>
+                    <!--<li class="sub-nav"><i class="material-icons sub-nav-icons">euro_symbol</i><a href="#">Tarifs</a></li>-->
+                    <!--<li class="sub-nav"><i class="material-icons sub-nav-icons">input</i><a href="#">Export</a></li>-->
+                </ul>
+            </nav>
+        </aside>
+        <div class="page">
+            <header class="base-header">
+                <div class="base-url">{% block url %}{% endblock %}</div>
+                <div class="base-deconnexion"><i class="material-icons sub-nav-icons">logout</i><a href="{{ path('logout') }}">Deconnexion</a></div>
+            </header>
+            {% for message in app.flashes('success') %}
+                <div class="alert_box__success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <div class="base-content">
+                {% block body %}{% endblock %}
+            </div>
+            <footer class="base-footer">
+                <span>Copyright - 2019 - Camping de la Sélune à Saint-Hilaire-du-Harcouët - Version 2.1.2</span>
+            </footer>
+            <script src="{{ absolute_url(asset('bundles/fosjsrouting/js/router.min.js')) }}"></script>
+            <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+            <script src="{{ absolute_url(asset('build/app.js')) }}"></script>
+            <script src="{{ absolute_url(asset('build/runtime.js')) }}"></script>
+            <script src="{{ absolute_url(asset('build/vendors~app.js')) }}"></script>
+            {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>

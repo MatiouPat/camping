@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo rsync -av ./ matiou@5.196.66.196:~/www/camping --include=public/build --include=public/.htaccess --include=public/bundles --include=vendor --exclude-from=.gitignore --exclude=".*"

@@ -1,0 +1,112 @@
+.map{
+    width: calc(60vw - 150px);
+    height: 100%;
+    margin-left: calc(20vw - 90px);
+    margin-bottom: -175px;
+    padding: 0 25px;
+    transform: rotate(90deg);
+}
+
+#map_legend{
+    display: block;
+    position: absolute;
+    width: 30vw;
+    margin-left: -50px;
+    z-index: 2;
+}
+
+.week{
+    font-size: 3rem;
+    padding: 20px;
+    text-align: center;
+}
+
+.week #week-down,#week-up{
+    margin: 0 20px;
+    padding: 4px;
+    font-size: 3rem;
+    color: #FFFFFF;
+    background-color: #00aeef;
+    border-radius: 50%;
+    vertical-align: -10px;
+}
+
+.date{
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.date #day-down,#day-up{
+    margin: 0 10px;
+    padding: 2px;
+    font-size: 3rem;
+    color: #FFFFFF;
+    background-color: #00aeef;
+    border-radius: 50%;
+    vertical-align: -15px;
+}
+
+.date .material-icons{
+    vertical-align: -10px;
+}
+
+svg{
+    transition: all 200ms ease-in-out;
+}
+
+polygon{
+    transform-origin: center;
+}
+
+.spot-box-informations{
+    display: none;
+    z-index: 3;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    padding: 5px;
+    background-color: #EEEEEE;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border: #777777 solid 1px;
+}
+
+#spot-number{
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#spot-informations{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.spot-informations-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#spot-stay-date{
+    font-weight: 700;
+}
+
+#spot-stay-status{
+    font-weight: 700;
+}
+
+.spot-informations-box span{
+    display: block;
+    font-size: 1.4rem;
+    margin: 0 10px;
+}
+
+#spot-stay-person span{
+    margin: 0;
+}
+
+.spot-informations-box img{
+    margin: auto 0px;
+}

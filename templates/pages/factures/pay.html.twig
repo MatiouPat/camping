@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('billPay') }}
+{% endblock %}
+
+{% block url %}
+    <a href="{{ path('entry.index') }}">Liste des clients</a> <i class="trending_flat material-icons ">trending_flat</i><a href="{{ path('entry.view', {'id': entry.id}) }}">{{ entry.genderName }} {{ entry.surname }} {{ entry.name }}</a> <i class="trending_flat material-icons ">trending_flat</i> Facturation
+{% endblock %}
+
+{% block body %}
+    <div class="body_box">
+        <div class="box service_box">
+            <span class="title_box title_box__blue">Services</span>
+            {% if bill.service %}
+            {{ bill.service[0].service.washing_token }} Jeton de lave-linge
+            {{ bill.service[0].service.drying_token }} Jeton de sèche-linge
+            {{ bill.service[0].service.external_shower }} Douche extérieure
+            {% endif %}
+        </div>
+        <div class="box bill_box">
+            <span class="title_box title_box__blue">Facture</span>
+            <a href="{{ path('bill.viewPdf') }}">Vision PDF</a>
+        </div>
+    </div>
+    <div class="footer_box">
+        {% for stay in bill.stay %}
+            <div class="box stay">
+                <span class="title_box title_box__blue">Séjour</span>
+                <div class="content-box">
+                    {% if stay.stay%}
+                        <span class="date-box">Du <span class="date date-blue">{{ stay.stay.arrivedAt|date('d-m-Y') }}</span> aux <span class="date date-blue">{{ stay.stay.leavedAt|date('d-m-Y') }}</span></span>
+                        <div class="stay-informations">
+                            <div class="stay-wells">
+                                <table>
+                                    <tr {% if stay.stay.adult == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/adult.svg') }}"></td>
+                                        <td>Adulte</td>
+                                        <td>{{ stay.stay.adult }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.teenager == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/teenager.svg') }}"></td>
+                                        <td>Enfant (+12ans)</td>
+                                        <td>{{ stay.stay.teenager }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.child == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/child.svg') }}"></td>
+                                        <td>Enfant (-12ans)</td>
+                                        <td>{{ stay.stay.child }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.car == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/car.svg') }}"></td>
+                                        <td>Voiture</td>
+                                        <td>{{ stay.stay.car }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.motorBike == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/motor_bike.svg') }}"></td>
+                                        <td>Moto</td>
+                                        <td>{{ stay.stay.motorBike }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.bike == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/bike.svg') }}"></td>
+                                        <td>Vélo</td>
+                                        <td>{{ stay.stay.bike }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.campingCar == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/camping_car.svg') }}"></td>
+                                        <td>Camping-car</td>
+                                        <td>{{ stay.stay.campingCar }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.caravan == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/caravan.svg') }}"></td>
+                                        <td>Caravane</td>
+                                        <td>{{ stay.stay.caravan }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.tent == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/tent.svg') }}"></td>
+                                        <td>Tente</td>
+                                        <td>{{ stay.stay.tent }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="stay-services">
+                                <table>
+                                    <tr {% if stay.stay.woodenCaravan == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/wooden_caravan.svg') }}"></td>
+                                        <td>Roulotte</td>
+                                        <td>{{ stay.stay.woodenCaravan }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.electricity == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/electricity.svg') }}"></td>
+                                        <td>Electricité</td>
+                                        <td>{{ stay.stay.electricity }}</td>
+                                    </tr>
+                                    <tr {% if stay.stay.pet == 0 %} class="invisible" {% else %} class="visible" {% endif %}>
+                                        <td><img style="height: 40px; width: 40px" src="{{ asset('img/pet.svg') }}"></td>
+                                        <td>Animal</td>
+                                        <td>{{ stay.stay.pet }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <span class="current-stay-spot">{{ stay.stay.spot }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

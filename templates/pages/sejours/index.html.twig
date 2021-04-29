@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('stay') }}
+{% endblock %}
+
+{% block url %}
+    Liste des séjours
+{% endblock %}
+
+{% block body %}
+    <h1 class="title_box title_box__green">Séjours en cours</h1>
+    <div class="box_edit">
+        <a class="button button__green" href="{{ path('stay.add') }}"><button type="button">Ajouter un séjour</button></a>
+    </div>
+    <div class="table-box">
+        <table class="table">
+            <thead class="thead">
+            <tr>
+                <th class="table_name"></th>
+                <th></th>
+                <th>Emplacement</th>
+                <th>Immatriculation</th>
+                <th>Arrivée</th>
+                <th>Départ</th>
+                <th><img alt="Adulte" title="Adulte" style="height: 30px; width: 30px" src="{{ asset('img/adult.svg') }}"></th>
+                <th><img alt="Adolescent" title="Adolescent" style="height: 30px; width: 30px" src="{{ asset('img/teenager.svg') }}"></th>
+                <th><img alt="Enfant" title="Enfant" style="height: 30px; width: 30px" src="{{ asset('img/child.svg') }}"></th>
+                <th><img alt="Voiture" title="Voiture" style="height: 30px; width: 30px" src="{{ asset('img/car.svg') }}"></th>
+                <th><img alt="Moto" title="Moto" style="height: 30px; width: 30px" src="{{ asset('img/motor_bike.svg') }}"></th>
+                <th><img alt="Vélo" title="Vélo" style="height: 30px; width: 30px" src="{{ asset('img/bike.svg') }}"></th>
+                <th><img alt="Camping car" title="Camping car" style="height: 30px; width: 30px" src="{{ asset('img/camping_car.svg') }}"></th>
+                <th><img alt="Caravane" title="Caravane" style="height: 30px; width: 30px" src="{{ asset('img/caravan.svg') }}"></th>
+                <th><img alt="Tente" title="Tente" style="height: 30px; width: 30px" src="{{ asset('img/tent.svg') }}"></th>
+                <th><img alt="Roulotte" title="Roulotte" style="height: 30px; width: 30px" src="{{ asset('img/wooden_caravan.svg') }}"></th>
+                <th><img alt="Electricité" title="Electricité" style="height: 30px; width: 30px" src="{{ asset('img/electricity.svg') }}"></th>
+                <th><img alt="Animaux" title="Animaux" style="height: 30px; width: 30px" src="{{ asset('img/pet.svg') }}"></th>
+            </tr>
+            </thead>
+            <tbody class="tbody">
+            {% for currentStay in currentStays  %}
+                {% if loop.index % 2 %}
+                    <tr class="row-blue" onclick="document.location='{{ path('entry.view', {id: currentStay.entry.id}) }}'">
+                        <td style="text-align: left">{{ currentStay.entry.genderName }} {{ currentStay.entry.surname }} {{ currentStay.entry.name }}<br>{{ currentStay.entry.address}}<br>{{ currentStay.entry.postalCode }} {{ currentStay.entry.city }}</td>
+                        <td>{{ currentStay.entry.nationality }}</td>
+                        <td>{{ currentStay.spot }}</td>
+                        <td>{{ currentStay.registration }}</td>
+                        <td>{{ currentStay.arrivedAt|date("d/m/Y") }}</td>
+                        <td>{{ currentStay.leavedAt|date("d/m/Y") }}</td>
+                        <td>{{ currentStay.adult }}</td>
+                        <td>{{ currentStay.teenager }}</td>
+                        <td>{{ currentStay.child }}</td>
+                        <td>{{ currentStay.car }}</td>
+                        <td>{{ currentStay.motorBike }}</td>
+                        <td>{{ currentStay.bike }}</td>
+                        <td>{{ currentStay.campingCar }}</td>
+                        <td>{{ currentStay.caravan }}</td>
+                        <td>{{ currentStay.tent }}</td>
+                        <td>{{ currentStay.woodenCaravan }}</td>
+                        <td>{{ currentStay.electricity|default(0) }}</td>
+                        <td>{{ currentStay.pet }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="row-grey" onclick="document.location='{{ path('entry.view', {id: currentStay.entry.id}) }}'">
+                        <td style="text-align: left">{{ currentStay.entry.genderName }} {{ currentStay.entry.surname }} {{ currentStay.entry.name }}<br>{{ currentStay.entry.address}}<br>{{ currentStay.entry.postalCode }} {{ currentStay.entry.city }}</td>
+                        <td>{{ currentStay.entry.nationality }}</td>
+                        <td>{{ currentStay.spot }}</td>
+                        <td>{{ currentStay.registration }}</td>
+                        <td>{{ currentStay.arrivedAt|date("d/m/Y") }}</td>
+                        <td>{{ currentStay.leavedAt|date("d/m/Y") }}</td>
+                        <td>{{ currentStay.adult }}</td>
+                        <td>{{ currentStay.teenager }}</td>
+                        <td>{{ currentStay.child }}</td>
+                        <td>{{ currentStay.car }}</td>
+                        <td>{{ currentStay.motorBike }}</td>
+                        <td>{{ currentStay.bike }}</td>
+                        <td>{{ currentStay.campingCar }}</td>
+                        <td>{{ currentStay.caravan }}</td>
+                        <td>{{ currentStay.tent }}</td>
+                        <td>{{ currentStay.woodenCaravan }}</td>
+                        <td>{{ currentStay.electricity|default(0) }}</td>
+                        <td>{{ currentStay.pet }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <h1 class="title_box title_box__green">Derniers séjours</h1>
+    <div class="box_edit">
+        {{ knp_pagination_render(lastStays) }}
+    </div>
+    <div class="table-box">
+        <table class="table">
+            <thead class="thead">
+            <tr>
+                <th class="table_name"></th>
+                <th></th>
+                <th>Emplacement</th>
+                <th>Immatriculation</th>
+                <th>Arrivée</th>
+                <th>Départ</th>
+                <th><img alt="Adulte" title="Adulte" style="height: 30px; width: 30px" src="{{ asset('img/adult.svg') }}"></th>
+                <th><img alt="Adolescent" title="Adolescent" style="height: 30px; width: 30px" src="{{ asset('img/teenager.svg') }}"></th>
+                <th><img alt="Enfant" title="Enfant" style="height: 30px; width: 30px" src="{{ asset('img/child.svg') }}"></th>
+                <th><img alt="Voiture" title="Voiture" style="height: 30px; width: 30px" src="{{ asset('img/car.svg') }}"></th>
+                <th><img alt="Moto" title="Moto" style="height: 30px; width: 30px" src="{{ asset('img/motor_bike.svg') }}"></th>
+                <th><img alt="Vélo" title="Vélo" style="height: 30px; width: 30px" src="{{ asset('img/bike.svg') }}"></th>
+                <th><img alt="Camping car" title="Camping car" style="height: 30px; width: 30px" src="{{ asset('img/camping_car.svg') }}"></th>
+                <th><img alt="Caravane" title="Caravane" style="height: 30px; width: 30px" src="{{ asset('img/caravan.svg') }}"></th>
+                <th><img alt="Tente" title="Tente" style="height: 30px; width: 30px" src="{{ asset('img/tent.svg') }}"></th>
+                <th><img alt="Roulotte" title="Roulotte" style="height: 30px; width: 30px" src="{{ asset('img/wooden_caravan.svg') }}"></th>
+                <th><img alt="Electricité" title="Electricité" style="height: 30px; width: 30px" src="{{ asset('img/electricity.svg') }}"></th>
+                <th><img alt="Animaux" title="Animaux" style="height: 30px; width: 30px" src="{{ asset('img/pet.svg') }}"></th>
+            </tr>
+            </thead>
+            <tbody class="tbody">
+            {% for lastStay in lastStays  %}
+                {% if loop.index % 2 %}
+                    <tr class="row-blue" onclick="document.location='{{ path('entry.view', {id: lastStay.entry.id}) }}'">
+                        <td style="text-align: left">{{ lastStay.entry.genderName }} {{ lastStay.entry.surname }} {{ lastStay.entry.name }}<br>{{ lastStay.entry.address}}<br>{{ lastStay.entry.postalCode }} {{ lastStay.entry.city }}</td>
+                        <td>{{ lastStay.entry.nationality }}</td>
+                        <td>{{ lastStay.spot }}</td>
+                        <td>{{ lastStay.registration }}</td>
+                        <td>{{ lastStay.arrivedAt|date("d/m/Y") }}</td>
+                        <td>{{ lastStay.leavedAt|date("d/m/Y") }}</td>
+                        <td>{{ lastStay.adult }}</td>
+                        <td>{{ lastStay.teenager }}</td>
+                        <td>{{ lastStay.child }}</td>
+                        <td>{{ lastStay.car }}</td>
+                        <td>{{ lastStay.motorBike }}</td>
+                        <td>{{ lastStay.bike }}</td>
+                        <td>{{ lastStay.campingCar }}</td>
+                        <td>{{ lastStay.caravan }}</td>
+                        <td>{{ lastStay.tent }}</td>
+                        <td>{{ lastStay.woodenCaravan }}</td>
+                        <td>{{ lastStay.electricity|default(0) }}</td>
+                        <td>{{ lastStay.pet }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="row-grey" onclick="document.location='{{ path('entry.view', {id: lastStay.entry.id}) }}'">
+                        <td style="text-align: left">{{ lastStay.entry.genderName }} {{ lastStay.entry.surname }} {{ lastStay.entry.name }}<br>{{ lastStay.entry.address}}<br>{{ lastStay.entry.postalCode }} {{ lastStay.entry.city }}</td>
+                        <td>{{ lastStay.entry.nationality }}</td>
+                        <td>{{ lastStay.spot }}</td>
+                        <td>{{ lastStay.registration }}</td>
+                        <td>{{ lastStay.arrivedAt|date("d/m/Y") }}</td>
+                        <td>{{ lastStay.leavedAt|date("d/m/Y") }}</td>
+                        <td>{{ lastStay.adult }}</td>
+                        <td>{{ lastStay.teenager }}</td>
+                        <td>{{ lastStay.child }}</td>
+                        <td>{{ lastStay.car }}</td>
+                        <td>{{ lastStay.motorBike }}</td>
+                        <td>{{ lastStay.bike }}</td>
+                        <td>{{ lastStay.campingCar }}</td>
+                        <td>{{ lastStay.caravan }}</td>
+                        <td>{{ lastStay.tent }}</td>
+                        <td>{{ lastStay.woodenCaravan }}</td>
+                        <td>{{ lastStay.electricity|default(0) }}</td>
+                        <td>{{ lastStay.pet }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="box_edit">
+            {{ knp_pagination_render(lastStays) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="/js/home.js"></script>
+{% endblock %}

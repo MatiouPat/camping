@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('entry') }}
+{% endblock %}
+
+{% block url %}
+    Liste des clients
+{% endblock %}
+
+{% block body %}
+    <div class="box_edit">
+        <div class="research_box"><input type="text" placeholder="Rechercher un client" class="research_box__text"><button class="research_box__button">Rechercher</button></div>
+        <a href="{{ path('entry.add') }}" class="button button__green"><button type="button">Ajouter un client</button></a>
+    </div>
+    <div class="table-box">
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                    <th>Nationnalité</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+            {% for entry in entries  %}
+                {% if loop.index % 2 %}
+                    <tr class="row-blue" onclick="document.location='{{ path('entry.view', {id: entry.id}) }}'">
+                        <td>{{ entry.genderName }} {{ entry.surname }} {{ entry.name }}</td>
+                        <td>{{ entry.address }}</td>
+                        <td>{{ entry.postalcode }}</td>
+                        <td>{{ entry.city }}</td>
+                        <td>{{ entry.nationality }}</td>
+                    </tr>
+                {% else %}
+                    <tr class="row-grey" onclick="document.location='{{ path('entry.view', {id: entry.id}) }}'">
+                        <td>{{ entry.genderName }} {{ entry.surname }} {{ entry.name }}</td>
+                        <td>{{ entry.address }}</td>
+                        <td>{{ entry.postalcode }}</td>
+                        <td>{{ entry.city }}</td>
+                        <td>{{ entry.nationality }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('entry') }}
+{% endblock %}

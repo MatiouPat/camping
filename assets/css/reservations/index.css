@@ -1,0 +1,60 @@
+.date{
+    font-size: 1.5rem;
+    padding: 5px 5px 25px 5px;
+    text-align: center;
+}
+
+.green-button{
+    margin: 5px 0 25px 0;
+}
+
+.date .material-icons{
+    vertical-align: -10px;
+}
+
+.calendar{
+    width: calc(100vw - 20% - 75px);
+    height: calc(125vh + 50px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.calendar6{
+    height: calc(150vh + 50px);
+}
+
+.calendar th{
+    height: 25px;
+    background-color: #00aeef;
+    vertical-align: middle;
+}
+
+.day-in{
+    position: relative;
+    width: calc(100% / 7);
+    height: calc(125vh / 7 );
+    text-align: center;
+    border: solid 1px #BBBBBB;
+}
+
+.day-in:hover{
+    background-color: #CEDFDF;
+}
+
+.day-out{
+    background-color: #DDDDDD;
+}
+
+.day-number{
+    display: block;
+    position: absolute;
+    font-weight: 700;
+    padding: 10px;
+    text-align: left;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+.booking{
+    font-size: 0.9rem;
+    font-weight: normal;
+}

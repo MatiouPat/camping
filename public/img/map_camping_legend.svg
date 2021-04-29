@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Calque_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 640 480"
+   style="enable-background:new 0 0 640 480;"
+   xml:space="preserve"
+   sodipodi:docname="map_camping_legend.svg"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"><metadata
+   id="metadata89"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs87" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1024"
+   id="namedview85"
+   showgrid="false"
+   inkscape:zoom="1.9666667"
+   inkscape:cx="513.86281"
+   inkscape:cy="311.01256"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Calque_1" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#EEEEEE;}
+	.st1{fill:#3FA9F5;}
+	.st2{fill:none;}
+	.st3{font-family:'ArialMT';}
+	.st4{font-size:10px;}
+	.st5{font-size:21px;}
+	.st6{font-size:48px;}
+	.st7{fill:#BDCCD4;}
+	.st8{fill:#00AA00;}
+	.st9{fill:#FF0000;}
+	.st10{fill:#FFFF00;}
+	.st11{fill:#1B489D;}
+	.st12{font-size:18px;}
+	.st13{fill:#FF8000;}
+</style>
+<g
+   id="g8">
+	<rect
+   x="120.5"
+   y="27.5"
+   class="st0"
+   width="421"
+   height="421"
+   id="rect4" />
+	<path
+   d="M540,29v418H122V29H540 M543,26H119v424h424V26L543,26z"
+   id="path6" />
+</g>
+<g
+   id="g14">
+	<rect
+   x="120"
+   y="27"
+   class="st1"
+   width="422"
+   height="51"
+   id="rect10" />
+	<path
+   d="M541,28v49H121V28H541 M543,26H119v53h424V26L543,26z"
+   id="path12" />
+</g>
+<rect
+   x="436.3"
+   y="50.5"
+   class="st2"
+   width="399.5"
+   height="14.6"
+   id="rect16" />
+<text
+   class="st3 st4"
+   id="text18"
+   x="480.2652"
+   y="56.649601"
+   style="font-size:10px;font-family:ArialMT">(2019)</text>
+
+<text
+   class="st3 st5"
+   id="text20"
+   x="146.0002"
+   y="57.799999"
+   style="font-size:21px;font-family:ArialMT">Carte du Camping de la Sélune </text>
+
+<polygon
+   points="578,251.1 550,237 550,246 509,246 509,256 550,256 550,265.3 "
+   id="polygon22" />
+<text
+   transform="matrix(1 0 0 1 580.6816 265.6841)"
+   class="st3 st6"
+   id="text24">N</text>
+
+<g
+   id="g30">
+	<rect
+   x="156.5"
+   y="107.5"
+   class="st7"
+   width="25"
+   height="25"
+   id="rect26" />
+	<path
+   d="M181,108v24h-24v-24H181 M182,107h-26v26h26V107L182,107z"
+   id="path28" />
+</g>
+<g
+   id="g36">
+	<rect
+   x="156.5"
+   y="163.9"
+   class="st8"
+   width="25"
+   height="25"
+   id="rect32" />
+	<path
+   d="M181,164.4v24h-24v-24H181 M182,163.4h-26v26h26V163.4L182,163.4z"
+   id="path34" />
+</g>
+<g
+   id="g42">
+	<rect
+   x="156.5"
+   y="220.3"
+   class="st9"
+   width="25"
+   height="25"
+   id="rect38" />
+	<path
+   d="M181,220.8v24h-24v-24H181 M182,219.8h-26v26h26V219.8L182,219.8z"
+   id="path40" />
+</g>
+<g
+   id="g48">
+	<rect
+   x="156.5"
+   y="333.1"
+   class="st10"
+   width="25"
+   height="25"
+   id="rect44" />
+	<path
+   d="M181,333.6v24h-24v-24H181 M182,332.6h-26v26h26V332.6L182,332.6z"
+   id="path46" />
+</g>
+<g
+   id="g54">
+	<rect
+   x="156.5"
+   y="389.5"
+   class="st11"
+   width="25"
+   height="25"
+   id="rect50" />
+	<path
+   d="M181,390v24h-24v-24H181 M182,389h-26v26h26V389L182,389z"
+   id="path52" />
+</g>
+<rect
+   x="182.1"
+   y="142.9"
+   class="st2"
+   width="158.9"
+   height="26.8"
+   id="rect56" />
+<text
+   transform="matrix(1 0 0 1 190.8075 124.6743)"
+   class="st3 st12"
+   id="text58">Emplacement libre</text>
+
+<rect
+   x="180.1"
+   y="205.8"
+   class="st2"
+   width="197.4"
+   height="26.8"
+   id="rect60" />
+<text
+   transform="matrix(1 0 0 1 189.8156 182.6119)"
+   class="st3 st12"
+   id="text62">Emplacement non payé</text>
+
+<rect
+   x="182.1"
+   y="268.8"
+   class="st2"
+   width="158.9"
+   height="26.8"
+   id="rect64" />
+<text
+   transform="matrix(1 0 0 1 189.403 239.5485)"
+   class="st3 st12"
+   id="text66">Emplacement payé</text>
+
+<rect
+   x="171.1"
+   y="331.7"
+   class="st2"
+   width="259.3"
+   height="26.8"
+   id="rect68" />
+<text
+   transform="matrix(1 0 0 1 188.8879 351.4857)"
+   class="st3 st12"
+   id="text70">Emplacement en garage mort</text>
+
+<rect
+   x="183.1"
+   y="394.6"
+   class="st2"
+   width="173.4"
+   height="26.8"
+   id="rect72" />
+<text
+   transform="matrix(1 0 0 1 188.5553 407.4232)"
+   class="st3 st12"
+   id="text74">Emplacement réservé</text>
+
+<g
+   id="g80">
+	<rect
+   x="156.5"
+   y="276.7"
+   class="st13"
+   width="25"
+   height="25"
+   id="rect76" />
+	<path
+   d="M181,277.2v24h-24v-24H181 M182,276.2h-26v26h26V276.2L182,276.2z"
+   id="path78" />
+</g>
+<text
+   transform="matrix(1 0 0 1 190.8074 295.6104)"
+   class="st3 st12"
+   id="text82">Départ aujourd’hui</text>
+
+</svg>
